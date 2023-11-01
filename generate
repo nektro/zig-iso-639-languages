@@ -1,0 +1,54 @@
+#! /usr/bin/env nix-shell
+/*
+#! nix-shell -i node -p nodejs
+*/
+
+const fs = require("fs");
+
+const code2s = new Map();
+const code3s = new Map();
+let data = "";
+
+fetch('https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt').then(response => response.text()).then(text => {
+    for (const row of text.split('\n')) {
+        const items = row.split('|');
+
+        const c3 = items[0];
+        const c2 = items[2];
+        const name = items[3];
+
+        code3s.set(c3, name);
+        if (c2.length > 0) code2s.set(c2, name);
+    }
+
+    console.log(code3s.size);
+    console.log(code2s.size);
+
+    data += '//! ISO 639 Codes for the Representation of Names of Languages\n';
+    data += '\n';
+
+    data += 'pub const Alpha2Code = enum {\n';
+    for (const [item, jtem] of code2s.entries()) {
+        if (["or"].includes(item)) {
+            data += `    @"${item}", // ${jtem}\n`;
+            continue;
+        }
+        data += `    ${item}, // ${jtem}\n`;
+    }
+    data += '};\n';
+    data += '\n';
+
+    data += 'pub const Alpha3Code = enum {\n';
+    for (const [item, jtem] of code3s.entries()) {
+        if (["asm"].includes(item)) {
+            data += `    @"${item}", // ${jtem}\n`;
+            continue;
+        }
+        if (item.includes("-")) continue;
+        data += `    ${item}, // ${jtem}\n`;
+    }
+    data += '};\n';
+
+
+    fs.writeFileSync('mod.zig', data);
+});
