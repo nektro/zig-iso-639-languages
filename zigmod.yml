@@ -3,4 +3,3 @@ name: iso-639-languages
 main: mod.zig
 license: 0BSD
 description: ISO 639 Language codes
-dependencies:
