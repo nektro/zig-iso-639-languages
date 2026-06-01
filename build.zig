@@ -2,7 +2,7 @@ const std = @import("std");
 
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
-    const mode = b.option(std.builtin.Mode, "mode", "") orelse .Debug;
+    const mode = b.option(std.builtin.OptimizeMode, "mode", "") orelse .Debug;
     const disable_llvm = b.option(bool, "disable_llvm", "use the non-llvm zig codegen") orelse false;
 
     const mod = b.addModule("iso-639-languages", .{
@@ -10,9 +10,11 @@ pub fn build(b: *std.Build) void {
     });
 
     const tests = b.addTest(.{
-        .root_source_file = b.path("test.zig"),
-        .target = target,
-        .optimize = mode,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("test.zig"),
+            .target = target,
+            .optimize = mode,
+        }),
     });
     tests.root_module.addImport("iso-639-languages", mod);
     tests.use_llvm = !disable_llvm;
