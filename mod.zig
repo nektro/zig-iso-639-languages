@@ -184,6 +184,9 @@ pub const Alpha2Code = enum {
     yo, // Yoruba
     za, // Zhuang; Chuang
     zu, // Zulu
+
+    pub const BaseType = []const u8;
+    pub const default: @This() = .en;
 };
 
 pub const Alpha3Code = enum {
@@ -673,4 +676,7 @@ pub const Alpha3Code = enum {
     zun, // Zuni
     zxx, // No linguistic content; Not applicable
     zza, // Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki
+
+    pub const BaseType = []const u8;
+    pub const default: @This() = .eng;
 };
