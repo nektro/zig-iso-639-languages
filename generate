@@ -50,6 +50,10 @@ fetch('https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt').then(respons
     data += '\n';
     data += '    pub const BaseType = []const u8;\n';
     data += '    pub const default: @This() = .en;\n'
+    data += '\n';
+    data += '    pub fn nprint(self: Alpha2Code, writer: anytype) !void {\n';
+    data += '        return writer.writeAll(@tagName(self));\n';
+    data += '    }\n';
     data += '};\n';
     data += '\n';
 
@@ -78,6 +82,10 @@ fetch('https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt').then(respons
     data += '\n';
     data += '    pub const BaseType = []const u8;\n';
     data += '    pub const default: @This() = .eng;\n'
+    data += '\n';
+    data += '    pub fn nprint(self: Alpha3Code, writer: anytype) !void {\n';
+    data += '        return writer.writeAll(@tagName(self));\n';
+    data += '    }\n';
     data += '};\n';
 
 
