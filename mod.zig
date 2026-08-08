@@ -20,7 +20,6 @@ pub const Alpha2Code = enum {
     eu, // Basque
     be, // Belarusian
     bn, // Bengali
-    bh, // Bihari languages
     bi, // Bislama
     bs, // Bosnian
     br, // Breton
@@ -56,7 +55,7 @@ pub const Alpha2Code = enum {
     ga, // Irish
     gl, // Galician
     gv, // Manx
-    el, // Greek, Modern (1453-)
+    el, // Modern Greek (1453-)
     gn, // Guarani
     gu, // Gujarati
     ht, // Haitian; Haitian Creole
@@ -113,12 +112,12 @@ pub const Alpha2Code = enum {
     mn, // Mongolian
     na, // Nauru
     nv, // Navajo; Navaho
-    nr, // Ndebele, South; South Ndebele
-    nd, // Ndebele, North; North Ndebele
+    nr, // South Ndebele
+    nd, // North Ndebele
     ng, // Ndonga
     ne, // Nepali
-    nn, // Norwegian Nynorsk; Nynorsk, Norwegian
-    nb, // Bokmål, Norwegian; Norwegian Bokmål
+    nn, // Norwegian Nynorsk
+    nb, // Norwegian Bokmål
     no, // Norwegian
     ny, // Chichewa; Chewa; Nyanja
     oc, // Occitan (post 1500)
@@ -296,7 +295,7 @@ pub const Alpha3Code = enum {
     day, // Land Dayak languages
     del, // Delaware
     den, // Slave (Athapascan)
-    dgr, // Dogrib
+    dgr, // Tlicho; Dogrib
     din, // Dinka
     div, // Divehi; Dhivehi; Maldivian
     doi, // Dogri
@@ -352,7 +351,7 @@ pub const Alpha3Code = enum {
     got, // Gothic
     grb, // Grebo
     grc, // Greek, Ancient (to 1453)
-    gre, // Greek, Modern (1453-)
+    gre, // Modern Greek (1453-)
     grn, // Guarani
     gsw, // Swiss German; Alemannic; Alsatian
     guj, // Gujarati
@@ -491,17 +490,17 @@ pub const Alpha3Code = enum {
     nap, // Neapolitan
     nau, // Nauru
     nav, // Navajo; Navaho
-    nbl, // Ndebele, South; South Ndebele
-    nde, // Ndebele, North; North Ndebele
+    nbl, // South Ndebele
+    nde, // North Ndebele
     ndo, // Ndonga
     nds, // Low German; Low Saxon; German, Low; Saxon, Low
     nep, // Nepali
-    new, // Nepal Bhasa; Newari
+    new, // Nepal Bhasa; Newar; Newari
     nia, // Nias
     nic, // Niger-Kordofanian languages
     niu, // Niuean
-    nno, // Norwegian Nynorsk; Nynorsk, Norwegian
-    nob, // Bokmål, Norwegian; Norwegian Bokmål
+    nno, // Norwegian Nynorsk
+    nob, // Norwegian Bokmål
     nog, // Nogai
     non, // Norse, Old
     nor, // Norwegian
