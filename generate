@@ -36,6 +36,18 @@ fetch('https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt').then(respons
         data += `    ${item}, // ${jtem}\n`;
     }
     data += '\n';
+    data += '    pub fn name(self: Alpha2Code) [:0]const u8 {\n';
+    data += '        return switch (self) {\n';
+    for (const [item, jtem] of code2s.entries()) {
+        if (["or"].includes(item)) {
+            data += `            .@"${item}" => "${jtem}",\n`;
+            continue;
+        }
+        data += `            .${item} => "${jtem}",\n`;
+    }
+    data += '        };\n';
+    data += '    }\n';
+    data += '\n';
     data += '    pub const BaseType = []const u8;\n';
     data += '    pub const default: @This() = .en;\n'
     data += '};\n';
@@ -50,6 +62,19 @@ fetch('https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt').then(respons
         if (item.includes("-")) continue;
         data += `    ${item}, // ${jtem}\n`;
     }
+    data += '\n';
+    data += '    pub fn name(self: Alpha3Code) [:0]const u8 {\n';
+    data += '        return switch (self) {\n';
+    for (const [item, jtem] of code3s.entries()) {
+        if (["asm"].includes(item)) {
+            data += `            .@"${item}" => "${jtem}",\n`;
+            continue;
+        }
+        if (item.includes("-")) continue;
+        data += `            .${item} => "${jtem}",\n`;
+    }
+    data += '        };\n';
+    data += '    }\n';
     data += '\n';
     data += '    pub const BaseType = []const u8;\n';
     data += '    pub const default: @This() = .eng;\n'
