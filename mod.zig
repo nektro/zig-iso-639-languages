@@ -376,6 +376,7 @@ pub const Alpha2Code = enum {
     }
 
     pub const BaseType = []const u8;
+    pub const baseTypeName = "char(2)";
     pub const default: @This() = .en;
 
     pub fn nprint(self: Alpha2Code, writer: anytype) !void {
@@ -1367,6 +1368,7 @@ pub const Alpha3Code = enum {
     }
 
     pub const BaseType = []const u8;
+    pub const baseTypeName = "char(3)";
     pub const default: @This() = .eng;
 
     pub fn nprint(self: Alpha3Code, writer: anytype) !void {
