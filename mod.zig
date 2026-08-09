@@ -1,5 +1,7 @@
 //! ISO 639 Codes for the Representation of Names of Languages
 
+const std = @import("std");
+
 pub const Alpha2Code = enum {
     aa, // Afar
     ab, // Abkhazian
@@ -378,6 +380,10 @@ pub const Alpha2Code = enum {
 
     pub fn nprint(self: Alpha2Code, writer: anytype) !void {
         return writer.writeAll(@tagName(self));
+    }
+
+    pub fn stringifyJson(self: Alpha2Code, writer: anytype, options: std.json.Stringify.Options, json: type) !void {
+        return json.stringify(writer, @tagName(self), options);
     }
 };
 
@@ -1365,5 +1371,9 @@ pub const Alpha3Code = enum {
 
     pub fn nprint(self: Alpha3Code, writer: anytype) !void {
         return writer.writeAll(@tagName(self));
+    }
+
+    pub fn stringifyJson(self: Alpha2Code, writer: anytype, options: std.json.Stringify.Options, json: type) !void {
+        return json.stringify(writer, @tagName(self), options);
     }
 };
