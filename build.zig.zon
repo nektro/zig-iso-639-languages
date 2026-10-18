@@ -1,0 +1,8 @@
+.{
+    .name = .zig_iso_639_languages,
+    .version = "0.0.1",
+    .dependencies = .{},
+    .minimum_zig_version = "0.17.0",
+    .paths = .{""},
+    .fingerprint = 0x26bb276be4f4331f,
+}
